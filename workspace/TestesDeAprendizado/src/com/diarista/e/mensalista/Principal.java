@@ -1,0 +1,50 @@
+package com.diarista.e.mensalista;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String args[]) {
+		@SuppressWarnings("resource")
+		Scanner teclado = new Scanner(System.in);
+		
+		//Variáveis auxiliares:
+		String nomeAux;
+		double salarioAux;
+		int diasAux;
+		
+		//Le os dados para um funcionario mensalista:
+		System.out.print("Qual o nome do funcionário mensalista? ");
+		nomeAux = teclado.next();
+		
+		System.out.print("Qual o valor do salario bruto do funcionario mensalista? ");
+		salarioAux = teclado.nextDouble();
+		
+		//Constrói um funcionário mensalista na memória (instância)
+		FuncionarioMensalista fM = new FuncionarioMensalista(nomeAux, salarioAux);
+		
+		//Le os dados de um funcionário diarista:
+		System.out.print("Qual o nome do funcionário mensalista? ");
+		nomeAux = teclado.next();
+		
+		System.out.print("Qual o valor da hora deste funcionario diarista? ");
+		salarioAux = teclado.nextDouble();
+		
+		System.out.print("Quantos dias trabalhou? ");
+		diasAux = teclado.nextInt();
+		
+		//cria instância de um funcionário diarista na memória, já com os dados: 
+		FuncionarioDiarista fD = new FuncionarioDiarista(nomeAux, salarioAux, diasAux);
+		
+		//agora vamos implementar os dados de cada um e o salário bruto (calculado):
+		System.out.println("Dados e salário do funcionário mensalista: ");
+		System.out.println("\tNome: " + fM.nome);
+		System.out.println("\tSalário Bruto: " + fM.calcularSalarioLiquido());
+		
+		System.out.println("Dados e salário do funcionário diarista: ");
+		System.out.println("\tNome: " + fD.nome);
+		System.out.println("\tSalário Bruto: " + fD.calcularSalarioLiquido());
+		
+		
+	}
+}
